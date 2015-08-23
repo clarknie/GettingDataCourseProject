@@ -12,6 +12,33 @@ The code of run_analysis.R perform the following 5 steps as given in the instruc
 4. Appropriately labels the data set with descriptive variable names. 
 5. Creates a tidy data set with the average of each variable for each activity and each subject.
 
+## Detailed steps with variables
+### Step 1
+
+`X_train`, `y_train`, `subject_train`, `X_test`, `y_test`, `subject_test` contains the data loaded from downloaded txt files. 
+
+Then `train_test` containg the training and testing data are generated using cbind() and rbind()
+
+### Step 2
+
+`features` load the features corresponding to the columns of `X_train` and `X_test` files. 
+
+`mean_and_std_positions` use grep to locate the feature names with either `mean()` or `std()`
+
+`train_test_selected` contains the subset of `train_test` that needs further analysis.
+
+### Step 3
+`activity_labels` loads the activity labels and the corresponding activity names. It's merged with `train_test_selected` by the activity lable to get `all_data`.
+
+`all_data` has both the activity labels and the activity names.
+
+### Step 4
+
+Modify `names(all_data)` to label the data set with descriptive variable names.
+
+### Step 5
+I create `tidy_data` by using aggregate() function and then save it into **tidy_data.txt** file
+
 ## Files
 **README.md** is this README file
 
